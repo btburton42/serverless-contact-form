@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="index.css">
+    <title>Severless Contact Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="contact" action="/foo" method="post">
+        <h3>Quick Contact</h3>
+        <h4>Contact us today, and get reply with in 24 hours!</h4>
+        <fieldset>
+          <input placeholder="Your name" name="name" type="text" tabindex="1" autofocus>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Your Email Address" name="email" type="email" tabindex="2" >
+        </fieldset>
+        <fieldset>
+          <input placeholder="Your Phone Number" name="phone" type="tel" tabindex="3" >
+        </fieldset>
+        <fieldset>
+          <input placeholder="Your Web Site starts with http://" name="website" type="url" tabindex="4" >
+        </fieldset>
+        <fieldset>
+          <textarea placeholder="Type your Message Here...." name="comments" tabindex="5" ></textarea>
+        </fieldset>
+        <fieldset>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
