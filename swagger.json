@@ -1,0 +1,53 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2017-06-21T19:30:19Z",
+    "title": "serverless-contact-form"
+  },
+  "host": "6efvgv1dqf.execute-api.us-west-2.amazonaws.com",
+  "basePath": "/dev",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/serverless-contact-form": {
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/x-www-form-urlencoded": "{\n    \"data\": {\n        #foreach( $token in $input.path('$').split('&') )\n            #set( $keyVal = $token.split('=') )\n            #set( $keyValSize = $keyVal.size() )\n            #if( $keyValSize >= 1 )\n                #set( $key = $util.urlDecode($keyVal[0]) )\n                #if( $keyValSize >= 2 )\n                    #set( $val = $util.urlDecode($keyVal[1]) )\n                #else\n                    #set( $val = '' )\n                #end\n                \"$key\": \"$val\"#if($foreach.hasNext),#end\n            #end\n        #end\n    }\n}"
+          },
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:078145330048:function:serverless-contact-form_process_input/invocations",
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Empty": {
+      "type": "object",
+      "title": "Empty Schema"
+    }
+  }
+}
