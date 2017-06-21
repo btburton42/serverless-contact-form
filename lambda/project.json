@@ -1,0 +1,8 @@
+{
+  "name": "serverless-contact-form",
+  "description": "serverless contact form",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::078145330048:role/serverless-contact-form_lambda_function",
+  "environment": {}
+}
