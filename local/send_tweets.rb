@@ -8,7 +8,7 @@ client = Mysql2::Client.new(
  database: 'twitter')
 
 twitter = Twitter::REST::Client.new do |tclient|
- tclient.consumer_key        = process.env["TWITTER_COSUMER_KEY"]
+ tclient.consumer_key        = process.env["TWITTER_CONSUMER_KEY"]
  tclient.consumer_secret     = process.env["TWITTER_CONSUMER_SECRET"]
 end
 
